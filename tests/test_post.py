@@ -1,4 +1,5 @@
 from http import HTTPStatus
+
 from django.db.utils import IntegrityError
 import pytest
 
@@ -134,7 +135,7 @@ class TestPostAPI:
             f'некорректными данными к `{self.post_list_url}` возвращает ответ '
             'со статусом 400.'
         )
-        assert posts_count == Post.objects.count(), (   
+        assert posts_count == Post.objects.count(), (
             f'Проверьте, что POST-запрос с некорректными данными, '
             f'отправленный к `{self.post_list_url}`, не создаёт новый пост.'
         )
