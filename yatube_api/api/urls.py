@@ -14,7 +14,6 @@ v1router.register(
 )
 
 version_one_urls = [
-    path('', include('djoser.urls')),
     path('', include('djoser.urls.jwt')),
     path('', include(v1router.urls)),
 ]

@@ -88,6 +88,9 @@ class Comment(models.Model):
         default_related_name = "comments"
         ordering = ('-created',)
 
+    def __str__(self):
+        return self.text[:NUMBER_OF_LETTERS_VISIBLE]
+
 
 class Follow(models.Model):
     """Модель Подписки. Создает
@@ -101,6 +104,18 @@ class Follow(models.Model):
     )
 
     class Meta:
-        unique_together = ('user', 'following')
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'following'],
+                name='unique_following'
+            ),
+            models.CheckConstraint(
+                name='prevent_self_follow',
+                check=~models.Q(user=models.F("following")),
+            ),
+        ]
         verbose_name = 'подписка'
         verbose_name_plural = 'подписки'
+
+    def __str__(self):
+        return f'{self.user} following {self.following}'
