@@ -7,12 +7,11 @@ from rest_framework.permissions import (IsAuthenticated,
 from api.permissions import IsOwnerOrReadOnly
 from api.serializers import (CommentSerializer, FollowSerializer,
                              GroupSerializer, PostSerializer)
-
 from posts.models import Group, Post
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    """Втюсет для модели Поста."""
+    """Вьюсет для модели Поста."""
 
     queryset = Post.objects.all().select_related('author')
     serializer_class = PostSerializer

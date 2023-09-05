@@ -11,7 +11,6 @@ class PostSerializer(serializers.ModelSerializer):
         slug_field='username',
         default=serializers.CurrentUserDefault()
     )
-    image = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
         model = Post
@@ -63,8 +62,8 @@ class FollowSerializer(serializers.ModelSerializer):
             ),
         ]
 
-    def validate(self, data):
-        if data['following'] == self.context['request'].user:
+    def validate_following(self, data):
+        if data == self.context['request'].user:
             raise serializers.ValidationError(
                 'Нельзя подисаться на себя!'
             )

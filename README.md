@@ -1,8 +1,12 @@
 # api_final
 
+![Static Badge](https://img.shields.io/badge/%D0%B1%D1%8D%D0%BA%D0%B5%D0%BD%D0%B4-django-blue)
+![Static Badge](https://img.shields.io/badge/framework-django%20rest%20framework-blue)
+![Static Badge](https://img.shields.io/badge/%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-JWT%2Bdjoser-blue)
+
 ## Описание. Что это за проект, какую задачу он решает, в чём его польза
 
-Проект бэкенда на django с использованием DRF для API сервиса yatube, в котором есть возможность
+API сервис Yatube, в котором есть возможность
 отправлять, получать, создавать, изменять публикации, комментарии.
 Можно создавать и получать подписки, получать группы.
 Аутентификация производится с помощью JWT+djoser.
