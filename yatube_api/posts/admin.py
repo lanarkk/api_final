@@ -5,6 +5,7 @@ from posts.models import Comment, Follow, Group, Post
 
 admin.site.empty_value_display = '-пусто-'
 
+
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
     """Модель Группы в админ зоне.
